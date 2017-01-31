@@ -558,7 +558,7 @@ aside {
     font-size: 15px;
 }
 .pageTitleSection {
-    background: url("ban.png");
+   background-image: url('/assets/ban.png');
     width: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
