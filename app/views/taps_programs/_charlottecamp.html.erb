@@ -1,0 +1,419 @@
+<body class="body-wrapper">
+  <!--=== option Switcher ===-->
+  
+ <div class="main-wrapper">
+    <!-- HEADER -->
+    <header id="pageTop" class="header-wrapper header">
+      <!-- COLOR BAR -->
+      <div class="container-fluid color-bar top-fixed clearfix">
+        <div class="row">
+          <div class="col-sm-1 col-xs-2 bg-color-1">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-2">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-3">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-4">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-5">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-6">fix bar</div>
+          <div class="col-sm-1 bg-color-1 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-2 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-3 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-4 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-5 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-6 hidden-xs">fix bar</div>
+        </div>
+      </div>
+
+      <!-- TOP INFO BAR -->
+      <div class="top-info-bar bg-color-7 hidden-xs">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7">
+              <ul class="list-inline topList">
+                <li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i> <a href="mailto:tapscsmith@gmail.com">tapscsmith@gmail.com</a></li>
+                <li><i class="fa fa-phone bg-color-2" aria-hidden="true"></i> 704-674-8331</li>
+                <li><i class="fa fa-clock-o bg-color-6" aria-hidden="true"></i> Open: 9am - 5pm</li>
+              </ul>
+            </div>
+            <div class="col-sm-5">
+              <ul class="list-inline functionList">
+                
+                  <li><i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i>
+                <%=link_to 'Create an Account', new_user_registration_path %>
+                </li>
+                <li class="cart-dropdown">
+                  
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    
+                   
+                    
+                    
+                    
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAVBAR -->
+       <!-- NAVBAR -->
+      <nav id="menuBar" class="navbar navbar-default lightHeader" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src="assets/images/tplogo.png" alt="TAPS"></a>
+          </div>
+
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+             <li class="active dropdown singleDrop color-1">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">    
+                <% if user_signed_in? %>
+                  <i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i> <span>Logged In</span>
+                  <% else %>
+                  <i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i> <span>Sign In</span>
+                  <% end %>
+
+
+                  
+                </a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                  </li>
+                  <% if user_signed_in? %>
+                <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+              <%else%>
+                <li><%=link_to 'Sign Up', new_user_registration_path %></li>
+                <li><%=link_to 'Log In', new_user_session_path %></li>
+              <%end%>
+                </ul>
+              </li>   
+
+              <li class="active dropdown singleDrop color-1">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>Home</span>
+                </a>
+                <!-- <ul class="dropdown-menu dropdown-menu-left">
+                  <li><a href="index-v1.html">Kidz School</a></li>
+                  
+                </ul> -->
+              </li>
+              <li class="dropdown singleDrop color-3">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-ul bg-color-3" aria-hidden="true"></i> <span>Locations</span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                 <li><%=link_to 'Charlotte,NC',taps_programs_path(query: "charlottecamp")%></li>
+                  <li><%=link_to 'Eden,NC',taps_programs_path(query: "edencamp")%></li>
+                  <li class="dropdown dropdown-submenu">
+                    <!-- add content -->
+                    
+                  </li>
+                   <!-- add more drop down list -->
+                </ul>
+              </li>
+              
+              <li class="dropdown singleDrop color-4">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-ul bg-color-3" aria-hidden="true"></i> <span>FAQ</span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                 <li><%=link_to 'Frequently Asked Questions',taps_programs_path(query: "FAQ")%></li>
+                 
+                  
+<!--                   <li><a href="testimonial.html">Testimonial</a></li>
+ -->                  <li class="dropdown dropdown-submenu">
+                    <!-- add content -->
+                    
+                  </li>
+                   <!-- add more drop down list -->
+                </ul>
+              </li>
+              
+             <!-- <li class="dropdown singleDrop color-5">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-ul bg-color-3" aria-hidden="true"></i> <span>Locations</span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                  <li><a href="about_us.html">About</a></li>
+                   -->
+                 <!--  <li><a href="testimonial.html">Testimonial</a></li>
+                  <li class="dropdown dropdown-submenu"> -->
+                    <!-- add content -->
+                    
+                  <!-- </li> -->
+                   <!-- add more drop down list -->
+               <!--  </ul>
+              </li> -->
+              <!-- add more drop down list -->
+              
+            </ul>
+          </div>
+
+      <!-- add   cart if needed -->
+        </div>
+      </nav>
+    </header>
+    
+    <!-- PAGE TITLE SECTION-->
+    <section class="pageTitleSection">
+      <div class="container">
+        <div class="pageTitleInfo">
+          <h2>TAPS Charlotte Camp</h2>
+          <ol class="breadcrumb">
+             <p> Register Today</p>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN SECTION -->
+    <section class="mainContent full-width clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 col-sm-8 col-xs-12 block pull-right">
+            <div class="thumbnail thumbnailContent alt">
+              <img src="assets/images/3.jpg" alt="image" class="img-responsive">
+              <div class="sticker bg-color-1">$35</div>
+              <div class="caption border-color-1 singleBlog">
+                <h3 class="color-1">TAPS Charlotte.</h3>
+                <p>Registration Fee $35.00 per participant, not eligible for sibling discount.
+                *******Payment is not based on attendance, but based on your child being enrolled in the program. We do not transfer weeks to cover weeks missed. We do not refund for weeks missed. The early bird covers the entire summer and can not be substituted for vacation weeks, nor is there a refund for weeks not attended. You must give us advanced notice for any weeks your child will miss and on those weeks you will be charged a $50.00 holding fee for the week. If you do not advise us your child will not be in attendance at least 7 days in advance, you will be charged for the full week. The $50.00 holding fee does not apply to sibling discount******
+                .</p>
+                
+                <div class="imagesPart clearfix">
+                <%= image_tag "1.jpg", alt: "img", class: "img-rounded" %>
+                <%= image_tag "2.jpg", alt: "img", class: "img-rounded" %>
+
+
+                </div>
+                <p>TAPS camps are full of action packed activities including group games and challenges, indoor and outdoor activities, water games, and crafts that are all centered on each week’s unique theme.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4 col-xs-12 pull-left">
+            <aside>
+              <div class="panel panel-default eventSidebar">
+                  <div class="panel-heading bg-color-1 border-color-1">
+                    <h3 class="panel-title">Charlotte Camp Registration </h3>
+                  </div>
+                  <div class="panel-body">
+                    <ul class="media-list">
+                      <li class="media">
+                        <div class="media-left iconContent bg-color-2">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body iconContent">
+                          <h4 class="media-heading color-2">Camp Dates</h4>
+                          <p>June 16 - Aug 11</p>
+                        </div>
+                      </li>
+                      <li class="media">
+                        <div class="media-left iconContent bg-color-3">
+                          <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body iconContent">
+                          <h4 class="media-heading color-3">Daily Duration</h4>
+                          <p>8.00 AM-6.00 PM</p>
+                        </div>
+                      </li>
+                      <li class="media iconContet">
+                        <div class="media-left iconContent bg-color-4">
+                          <i class="fa fa-phone" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body iconContent">
+                          <h4 class="media-heading color-4">Contact</h4>
+                          <p> 704-674-8331</p>
+
+                        </div>
+                      </li>
+                      <li class="media">
+                        <div class="media-left iconContent bg-color-5">
+                          <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body iconContent">
+                          <h4 class="media-heading color-5">Charlotte</h4>
+                          <p></p>
+                        </div>
+                      </li>
+                    <h4 class="media-heading color-5">PLEASE SELECT THE NUMBER OF CHILDREN YOU WISH TO ENROLL</h4>
+                            <!-- <div class="radio">
+                    <label><input type="radio" name="optradio">One Child</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="optradio">Two Children</label>
+                  </div>
+                   -->
+                   <%=form_tag current_user.present? ? summer_camps_path : new_user_session_path,method: :get do %>
+                                <%=hidden_field_tag 'plan_name',nil,value: "charlotte"%>
+                                    <div class= "weekly">
+                                        <%= label 'weekly', "One child", :value => "true"  %>
+                                        <%= radio_button_tag 'interval', 1, true, class: 'monthly_radio'%></br>
+                                        <%= label 'weekly', "Two Children", :value => "false" %>
+                                        <%= radio_button_tag 'interval', 2, false, :checked => true, class: 'weekly_radio' %></br>
+                                        <%= label 'weekly', "Three Children", :value => "false" %>
+                                        <%=radio_button_tag 'interval',3,false%>
+                                    </div>
+                                    <li><%=submit_tag 'Buy NOW', class: "btn btn-primary bg-color-6 btn-block"%></a></li>
+                                        </ul>
+                                      </div>
+                                    <%end%>
+                                  </div>
+                                </aside>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+
+  <!-- FOOTER -->
+    <footer>
+      <!-- COLOR BAR -->
+      <div class="container-fluid color-bar clearfix">
+        <div class="row">
+          <div class="col-sm-1 col-xs-2 bg-color-1">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-2">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-3">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-4">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-5">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-6">fix bar</div>
+          <div class="col-sm-1 bg-color-1 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-2 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-3 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-4 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-5 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-6 hidden-xs">fix bar</div>
+        </div>
+      </div>
+
+     <!-- FOOTER INFO AREA -->
+      <div class="footerInfoArea full-width clearfix" style="background-image: url(<%= asset_path 'footer-bg3.jpg' %>);-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3 col-xs-12">
+              <div class="footerTitle">
+                <%= image_tag "logo-daycare.png"%>
+              </div>
+              <div class="footerInfo">
+                <p>Our fun and focused environment supports individual growth, independence and self-awareness. .</p>
+                <p>Each year, TAPS summer camps consists of aspiring, scientists, business leaders, athletes, engineers and tradespeople, among those that are interested in using the TAPS program to sharpen skills and discover new ones.</p>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="footerTitle">
+                <h4>TAPS INFO</h4>
+              </div>
+              <div class="footerInfo">
+                <ul class="list-unstyled footerList">
+                  <li>
+                    <a>
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>Eden Camp
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <i class="fa fa-angle-double-right" aria-hidden="true"></i>Charlotte Camp
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <i class="fa fa-angle-double-right" aria-hidden="true"></i>FAQ
+                    </a>
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="footerTitle">
+                <h4>Recent Post</h4>
+              </div>
+              <div class="footerInfo">
+                <ul class="list-unstyled postLink">
+                  <li>
+                    <div class="media">
+                      <a class="media-left">
+                        <%= image_tag "footer-img-1.png", alt: "img", class: "media-object img-rounded border-color-4" %>
+                      </a>
+                      <div class="media-body">
+                        <h5 class="media-heading"><a></a></h5>
+                        <p></p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <a class="media-left">
+                        <%= image_tag "footer-img-2.png", alt: "img", class: "media-object img-rounded border-color-4" %>
+                      </a>
+                      <div class="media-body">
+                        <h5 class="media-heading"><a></a></h5>
+                        <p></p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <a class="media-left">
+                         <%= image_tag "footer-img-3.png", alt: "img", class: "media-object img-rounded border-color-4" %>
+                      </a>
+                     
+                      <div class="media-body">
+                        <h5 class="media-heading"><a></a></h5>
+                        <p></p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="footerTitle">
+                <h4>Mailing List</h4>
+              </div>
+              <div class="footerInfo">
+                <p>Coming Soon</p>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Coming Soon" aria-describedby="basic-addon21">
+                  <!-- <button type="submit" class="input-group-addon" id="basic-addon21"><i class="fa fa-check" aria-hidden="true"></i></button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- COPY RIGHT -->
+      <div class="copyRight clearfix">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-5 col-sm-push-7 col-xs-12">
+              <ul class="list-inline">
+                <li><a class="bg-color-1"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+               
+              </ul>
+            </div>
+            <div class="col-sm-7 col-sm-pull-5 col-xs-12">
+              <div class="copyRightText">
+                <p>© 2017 Copyright TAPS INC.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+
+ 
+
+  
+
+ 
+
+</body>

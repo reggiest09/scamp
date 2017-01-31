@@ -1,0 +1,37 @@
+
+ <div class="panel panel-default formPanel">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%- flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+  <%- end -%>  
+       
+               
+              <div class="panel-heading bg-color-1 border-color-1">
+
+                <h3 class="panel-title">Login To Your Account</h3>
+              </div>
+              <div class="panel-body">
+                 <div class="form-group formField">
+                    <%= f.input :email, required: false, autofocus: true, class: "form-control" %>
+                  </div>
+                  <div class="form-group formField">
+                    <%= f.input :password, required: false, class: "form-control" %>
+                  </div>
+                  <div class="form-group formField">
+                  
+                    <%= f.button :submit, "Log in", class: "btn btn-primary btn-block bg-color-5 border-color-5" %>
+                  </div>
+                  <div class="form-group formField">
+                  <%= link_to "Log in With Facebook",user_facebook_omniauth_authorize_path, 
+                    :class => 'btn btn-block btn-social btn-facebook form-control' %>
+                     
+                 <% end %>
+              </div>
+            </div>
+
+
+
+
+
+
+  

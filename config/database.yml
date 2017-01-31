@@ -1,0 +1,27 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  
+  pool: 5
+
+development:
+  <<: *default
+  database: camp_development
+  username: Reggie
+  password: " "
+
+  
+test:
+  <<: *default
+  database: camp_test
+  username: Reggie
+  password: " "
+
+
+
+production:
+  <<: *default
+  database: camp_production
+  username: Reggie
+  password: " "

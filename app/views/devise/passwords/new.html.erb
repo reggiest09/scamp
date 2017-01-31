@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up or Login - TAPS</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  
+
+  <%= javascript_include_tag 'application'%>
+  
+
+
+  <%= csrf_meta_tags %>
+
+
+  
+  
+  
+
+  
+
+</head>
+
+
+
+<body class="body-wrapper">
+  <!--=== option Switcher ===-->
+  
+ <div class="main-wrapper">
+    <!-- HEADER -->
+    <header id="pageTop" class="header-wrapper header">
+      <!-- COLOR BAR -->
+      <div class="container-fluid color-bar top-fixed clearfix">
+        <div class="row">
+          <div class="col-sm-1 col-xs-2 bg-color-1">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-2">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-3">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-4">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-5">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-6">fix bar</div>
+          <div class="col-sm-1 bg-color-1 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-2 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-3 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-4 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-5 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-6 hidden-xs">fix bar</div>
+        </div>
+      </div>
+
+      <!-- TOP INFO BAR -->
+      <div class="top-info-bar bg-color-7 hidden-xs">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7">
+              <ul class="list-inline topList">
+                <li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i> <a href="mailto:tapscsmith@gmail.com">tapscsmith@gmail.com</a></li>
+                <li><i class="fa fa-phone bg-color-2" aria-hidden="true"></i> 704-674-8331</li>
+                <li><i class="fa fa-clock-o bg-color-6" aria-hidden="true"></i> Open: 9am - 5pm</li>
+              </ul>
+            </div>
+            <div class="col-sm-5">
+              <ul class="list-inline functionList">
+                
+                  <li><i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i>
+                <%=link_to 'Create an Account', new_user_registration_path %>
+                </li>
+                <li class="cart-dropdown">
+                  
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    
+                   
+                    
+                    
+                    
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAVBAR -->
+       <!-- NAVBAR -->
+      <nav id="menuBar" class="navbar navbar-default lightHeader" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><%= image_tag 'tplogo.png', :alt => "logo" %></a>
+          </div>
+
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+             <li class="active dropdown singleDrop color-1">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <% if user_signed_in? %>
+                  <i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i> <span>Logged In</span>
+                  <% else %>
+                  <i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i> <span>Sign In</span>
+                  <% end %>
+
+
+                  
+                </a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                  </li>
+                  <% if user_signed_in? %>
+                <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+              <%else%>
+                <li><%=link_to 'Sign Up', new_user_registration_path %></li>
+                <li><%=link_to 'Log In', new_user_session_path %></li>
+              <%end%>
+                </ul>
+              </li>   
+
+              <li class="active dropdown singleDrop color-1">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>Home</span>
+                </a>
+                <!-- <ul class="dropdown-menu dropdown-menu-left">
+                  <li><a href="index-v1.html">Kidz School</a></li>
+                  
+                </ul> -->
+              </li>
+              <li class="dropdown singleDrop color-3">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-ul bg-color-3" aria-hidden="true"></i> <span>Locations</span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                  <li><%=link_to 'Charlotte,NC',taps_programs_path(query: "charlottecamp")%></li>
+                  <li><%=link_to 'Eden,NC',taps_programs_path(query: "edencamp")%></li>
+                  <li class="dropdown dropdown-submenu">
+                    <!-- add content -->
+                    
+                  </li>
+                   <!-- add more drop down list -->
+                </ul>
+              </li>
+              
+              <li class="dropdown singleDrop color-4">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-ul bg-color-3" aria-hidden="true"></i> <span>FAQ</span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                 <li><%=link_to 'Frequently Asked Questions',taps_programs_path(query: "FAQ")%></li>
+                  
+<!--                   <li><a href="testimonial.html">Testimonial</a></li>
+ -->                  <li class="dropdown dropdown-submenu">
+                    <!-- add content -->
+                    
+                  </li>
+                   <!-- add more drop down list -->
+                </ul>
+              </li>
+              
+             <!-- <li class="dropdown singleDrop color-5">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-ul bg-color-3" aria-hidden="true"></i> <span>Locations</span></a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                  <li><a href="about_us.html">About</a></li>
+                   -->
+                 <!--  <li><a href="testimonial.html">Testimonial</a></li>
+                  <li class="dropdown dropdown-submenu"> -->
+                    <!-- add content -->
+                    
+                  <!-- </li> -->
+                   <!-- add more drop down list -->
+               <!--  </ul>
+              </li> -->
+              <!-- add more drop down list -->
+              
+            </ul>
+          </div>
+
+      <!-- add   cart if needed -->
+        </div>
+      </nav>
+    </header>
+    
+    
+    <!-- PAGE TITLE SECTION-->
+    <section class="pageTitleSection">
+      <div class="container">
+       <div class="pageTitleInfo">
+          <h2>Forgot your password</h2>
+          <ol class="breadcrumb">
+            
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN SECTION -->
+    <section class="mainContent full-width clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-2 col-sm-6 col-xs-12">
+          <h2>Forgot your password?</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Send me reset password instructions" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+           
+          </div>
+          <!-- <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default formPanel">
+              <div class="panel-heading bg-color-1 border-color-1">
+                <h3 class="panel-title">Allready Registered?</h3>
+              </div>
+              <div class="panel-body">
+                <form action="#" method="POST" role="form">
+                  <div class="form-group formField">
+                    <input type="text" class="form-control" placeholder="User name">
+                  </div>
+                  <div class="form-group formField">
+                    <input type="password" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-group formField">
+                    <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Log in">
+                  </div>
+                  <div class="form-group formField">
+                    <p class="help-block"><a href="sign-up-or-login.html#">Forgot password?</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+<!-- FOOTER -->
+    <footer>
+      <!-- COLOR BAR -->
+      <div class="container-fluid color-bar clearfix">
+        <div class="row">
+          <div class="col-sm-1 col-xs-2 bg-color-1">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-2">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-3">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-4">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-5">fix bar</div>
+          <div class="col-sm-1 col-xs-2 bg-color-6">fix bar</div>
+          <div class="col-sm-1 bg-color-1 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-2 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-3 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-4 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-5 hidden-xs">fix bar</div>
+          <div class="col-sm-1 bg-color-6 hidden-xs">fix bar</div>
+        </div>
+      </div>
+
+     <!-- FOOTER INFO AREA -->
+      <div class="footerInfoArea full-width clearfix" style="background-image: url(<%= asset_path 'footer-bg3.jpg' %>);-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3 col-xs-12">
+              <div class="footerTitle">
+                <%= image_tag "logo-daycare.png"%>
+              </div>
+              <div class="footerInfo">
+                <p>Our fun and focused environment supports individual growth, independence and self-awareness. .</p>
+                <p>Each year, TAPS summer camps consists of aspiring, scientists, business leaders, athletes, engineers and tradespeople, among those that are interested in using the TAPS program to sharpen skills and discover new ones.</p>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="footerTitle">
+                <h4>TAPS INFO</h4>
+              </div>
+              <div class="footerInfo">
+                <ul class="list-unstyled footerList">
+                  <li>
+                    <a>
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>Eden Camp
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <i class="fa fa-angle-double-right" aria-hidden="true"></i>Charlotte Camp
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <i class="fa fa-angle-double-right" aria-hidden="true"></i>FAQ
+                    </a>
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="footerTitle">
+                <h4>Recent Post</h4>
+              </div>
+              <div class="footerInfo">
+                <ul class="list-unstyled postLink">
+                  <li>
+                    <div class="media">
+                      <a class="media-left">
+                        <%= image_tag "footer-img-1.png", alt: "img", class: "media-object img-rounded border-color-4" %>
+                      </a>
+                      <div class="media-body">
+                        <h5 class="media-heading"><a></a></h5>
+                        <p></p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <a class="media-left">
+                        <%= image_tag "footer-img-2.png", alt: "img", class: "media-object img-rounded border-color-4" %>
+                      </a>
+                      <div class="media-body">
+                        <h5 class="media-heading"><a></a></h5>
+                        <p></p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <a class="media-left">
+                         <%= image_tag "footer-img-3.png", alt: "img", class: "media-object img-rounded border-color-4" %>
+                      </a>
+                     
+                      <div class="media-body">
+                        <h5 class="media-heading"><a></a></h5>
+                        <p></p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+              <div class="footerTitle">
+                <h4>Mailing List</h4>
+              </div>
+              <div class="footerInfo">
+                <p>Coming Soon</p>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Coming Soon" aria-describedby="basic-addon21">
+                  <!-- <button type="submit" class="input-group-addon" id="basic-addon21"><i class="fa fa-check" aria-hidden="true"></i></button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- COPY RIGHT -->
+      <div class="copyRight clearfix">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-5 col-sm-push-7 col-xs-12">
+              <ul class="list-inline">
+                <li><a class="bg-color-1"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+               
+              </ul>
+            </div>
+            <div class="col-sm-7 col-sm-pull-5 col-xs-12">
+              <div class="copyRightText">
+                <p>© 2017 Copyright TAPS INC.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+ 
+
+
+
+</body>
+
