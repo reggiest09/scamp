@@ -3964,7 +3964,7 @@ footer .color-bar {
     color: #ffffff;
 }
 .countUpSection {
-    background-image: url("count.jpg");
+    background-image: url(count.jpg);
     width: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
